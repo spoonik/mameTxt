@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eMf-6X-1AN" pageOrientation="vertical">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+    </dependencies>
+    <scenes>
+        <!--FileListController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="FileListController" id="AgC-eL-Hgc" customClass="FileListController" customModule="txt_rdr_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" text="Empy" id="7gG-90-bTW">
+                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="18"/>
+                        </label>
+                        <table alignment="left" id="IDe-7N-Lnr">
+                            <items>
+                                <tableRow identifier="FileTableRow" id="BcI-vX-I27" customClass="FilesTableRow" customModule="txt_rdr_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="bIf-gQ-Bpg">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" id="gOI-5A-Ton">
+                                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="fileLabel" destination="gOI-5A-Ton" id="l0u-Di-NQB"/>
+                                        <outlet property="groupBox" destination="bIf-gQ-Bpg" id="3YK-Il-vWw"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" hidden="YES" title="Sync" id="xss-VL-Ksm">
+                            <color key="titleColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="18"/>
+                            <connections>
+                                <action selector="pushSyncButton" destination="AgC-eL-Hgc" id="7vN-BU-I6z"/>
+                            </connections>
+                        </button>
+                        <table alignment="left" hidden="YES" id="PjY-Z8-ntA">
+                            <items>
+                                <tableRow identifier="FileTableRow" id="MVG-Cv-eRi" customClass="FilesTableRow" customModule="txt_rdr_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="Ea3-zI-FYN">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" id="Zff-JQ-bOR">
+                                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="fileLabel" destination="Zff-JQ-bOR" id="uBQ-zi-uaB"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="emptyLabel" destination="7gG-90-bTW" id="oZj-B5-ALV"/>
+                        <outlet property="iCloudTable" destination="PjY-Z8-ntA" id="YP4-vf-aDa"/>
+                        <outlet property="syncButton" destination="xss-VL-Ksm" id="kUq-8I-1iL"/>
+                        <outlet property="table" destination="IDe-7N-Lnr" id="XtK-rd-Zu3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="207" y="399"/>
+        </scene>
+        <!--Done-->
+        <scene sceneID="xMj-xb-8ba">
+            <objects>
+                <controller identifier="SettingsController" title="Done" id="Ra9-hy-3YS" customClass="BookSettingsController" customModule="txt_rdr_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="dNz-mh-QvE">
+                            <items>
+                                <switch width="1" alignment="left" title="VoiceOver" id="iOo-3L-O9F">
+                                    <connections>
+                                        <action selector="setSpeechMode:" destination="Ra9-hy-3YS" id="xB1-Th-Xa7"/>
+                                    </connections>
+                                </switch>
+                                <group width="1" alignment="left" layout="vertical" id="Etp-93-u0g">
+                                    <items>
+                                        <volumeControlView alignment="center" verticalAlignment="center" id="ri6-T0-9Ok"/>
+                                        <label alignment="left" hidden="YES" text="Volume" id="OeX-kD-rAH" userLabel="Volume"/>
+                                        <slider width="1" alignment="left" hidden="YES" value="5" maximum="10" steps="21" id="ji7-o4-Wpt">
+                                            <connections>
+                                                <action selector="changeSpeechVolume:" destination="Ra9-hy-3YS" id="A5k-T2-WJ3"/>
+                                            </connections>
+                                        </slider>
+                                        <button width="1" alignment="left" title="Language" id="ofF-sr-r7W">
+                                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                            <connections>
+                                                <action selector="pushLanguageSelectButton" destination="Ra9-hy-3YS" id="d2o-6r-yxY"/>
+                                            </connections>
+                                        </button>
+                                        <label alignment="left" text="Speed" id="xTy-Zo-FhE" userLabel="Speed"/>
+                                        <slider width="1" alignment="left" value="5" maximum="10" steps="21" id="hhO-35-CqP">
+                                            <color key="color" red="0.29042481795828923" green="0.59929488820535193" blue="0.71972632410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="changeSpeechSpeed:" destination="Ra9-hy-3YS" id="05d-Xi-JII"/>
+                                            </connections>
+                                        </slider>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="8P4-zX-8Ag">
+                            <items>
+                                <switch width="1" alignment="left" title="Shuffle" id="rVb-rp-sQr">
+                                    <connections>
+                                        <action selector="setShuffleMode:" destination="Ra9-hy-3YS" id="AQw-vm-3WE"/>
+                                    </connections>
+                                </switch>
+                                <label alignment="left" text="AutoFlipSpeed" id="47T-po-JIP"/>
+                                <slider width="1" alignment="left" maximum="8" steps="8" id="nMf-bs-Gld">
+                                    <connections>
+                                        <action selector="setAutoFlipSpeed:" destination="Ra9-hy-3YS" id="ZpE-yu-TZD"/>
+                                    </connections>
+                                </slider>
+                            </items>
+                        </group>
+                        <label alignment="center" numberOfLines="2" id="gib-jH-Cjp">
+                            <string key="text">
+Erase This File?</string>
+                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <button width="1" alignment="left" title="Erase" id="S58-eM-EWu">
+                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                            <connections>
+                                <action selector="pushDeleteButton" destination="Ra9-hy-3YS" id="HAf-3A-j1L"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="autoFlipGroup" destination="8P4-zX-8Ag" id="r3Q-tV-vYn"/>
+                        <outlet property="flipSpeedSlider" destination="nMf-bs-Gld" id="tmy-te-1ex"/>
+                        <outlet property="shuffleSwitch" destination="rVb-rp-sQr" id="cUk-Ht-BlT"/>
+                        <outlet property="speechSpeedSlider" destination="hhO-35-CqP" id="AIU-kU-b9k"/>
+                        <outlet property="speechSwitchButton" destination="iOo-3L-O9F" id="sFG-ZX-0J9"/>
+                        <outlet property="speechVolumeSlider" destination="ji7-o4-Wpt" id="fGI-o5-lbz"/>
+                        <outlet property="voiceOverGroup" destination="Etp-93-u0g" id="XDQ-l8-8Qb"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="439" y="407.5"/>
+        </scene>
+        <!--Close-->
+        <scene sceneID="HpQ-Dy-WoS">
+            <objects>
+                <controller identifier="SpeechInterface" title="Close" id="80H-91-40g" customClass="SpeechInterfaceController" customModule="txt_rdr_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="center" layout="vertical" id="5dw-wI-5uy">
+                            <items>
+                                <group width="1" height="0.20000000000000001" alignment="left" id="tmO-Bx-pds">
+                                    <items>
+                                        <label alignment="center" text="BookTitle" id="ttd-9E-aaB"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.5" alignment="center" layout="vertical" id="QeG-uR-F29">
+                                    <items>
+                                        <button width="35" height="35" alignment="center" backgroundImage="play" id="Yd0-YY-BJP">
+                                            <connections>
+                                                <action selector="pushStartStopSpeech" destination="80H-91-40g" id="TiG-WU-OhA"/>
+                                            </connections>
+                                        </button>
+                                        <slider width="1" height="24" alignment="left" verticalAlignment="bottom" continuous="YES" value="5" maximum="10" steps="21" id="1Du-Ky-KvN">
+                                            <color key="color" red="1" green="0.79872505839999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="changeSpeedSlider:" destination="80H-91-40g" id="Csv-Kv-nya"/>
+                                            </connections>
+                                        </slider>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.29999999999999999" alignment="left" id="eTG-hx-caS">
+                                    <items>
+                                        <volumeControlView width="1" height="1" alignment="center" verticalAlignment="bottom" semanticContentAttribute="playback" id="Ugg-DN-gfb">
+                                            <color key="tintColor" red="1" green="0.79872505839999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </volumeControlView>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="speechingBookName" destination="ttd-9E-aaB" id="CQM-25-E6i"/>
+                        <outlet property="speedSlider" destination="1Du-Ky-KvN" id="IrZ-2j-56q"/>
+                        <outlet property="startStopSpeech" destination="Yd0-YY-BJP" id="slk-zv-IjI"/>
+                        <outlet property="volumeControl" destination="Ugg-DN-gfb" id="tHr-CQ-adT"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="207" y="1039"/>
+        </scene>
+        <!--TextPageController-->
+        <scene sceneID="8hh-Yc-TWV">
+            <objects>
+                <controller identifier="TextPageController" id="eMf-6X-1AN" customClass="TextPageController" customModule="txt_rdr_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="VoiceOver ▶◼" id="b1f-Tm-iDw">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="1" green="0.79872505839999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                            <connections>
+                                <action selector="pushVoiceOverButton" destination="eMf-6X-1AN" id="mQg-dc-MO7"/>
+                            </connections>
+                        </button>
+                        <group width="1" height="57" alignment="center" hidden="YES" layout="vertical" id="Lli-gQ-hC4"/>
+                        <table alignment="left" id="d0g-AG-H8B">
+                            <items>
+                                <tableRow identifier="FileTableRow" id="06R-HJ-UzR" customClass="FilesTableRow" customModule="txt_rdr_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="0.0" id="pFL-Cc-GJc">
+                                        <items>
+                                            <label width="1" alignment="left" textAlignment="left" numberOfLines="0" id="x9S-kJ-oGx">
+                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="contentLabel" destination="x9S-kJ-oGx" id="glB-3L-pQN"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                            <gestureRecognizers>
+                                <swipeGestureRecognizer id="VGz-eJ-DQX">
+                                    <connections>
+                                        <action selector="swipeRight:" destination="eMf-6X-1AN" id="zjs-wg-Vch"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                                <swipeGestureRecognizer direction="2" id="M52-oS-B9U">
+                                    <connections>
+                                        <action selector="swipeLeft:" destination="eMf-6X-1AN" id="DRK-Nc-wea"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                            </gestureRecognizers>
+                        </table>
+                        <group width="1" alignment="center" layout="vertical" id="C97-UV-9yb">
+                            <items>
+                                <label alignment="center" verticalAlignment="bottom" text="0/0" id="2Tr-Vw-8MT">
+                                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="pos" destination="2Tr-Vw-8MT" id="IOh-95-WGV"/>
+                        <outlet property="table" destination="d0g-AG-H8B" id="O9e-Gn-q3r"/>
+                        <outlet property="voiceOverButton" destination="b1f-Tm-iDw" id="68l-QC-cp9"/>
+                        <outlet property="voiceOverGroup" destination="Lli-gQ-hC4" id="4do-XO-N2W"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="207" y="693"/>
+        </scene>
+        <!--PageJumpController-->
+        <scene sceneID="JyF-Km-UC3">
+            <objects>
+                <controller identifier="PageJumpController" id="HfE-Zb-cdI" customClass="PageJumpController" customModule="txt_rdr_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="82.5" alignment="center" layout="vertical" id="MFk-Ay-gvp">
+                            <items>
+                                <label alignment="center" text="0/0" textAlignment="center" id="ohJ-Q8-LB4">
+                                    <fontDescription key="font" type="system" pointSize="27"/>
+                                </label>
+                                <slider width="1" alignment="center" verticalAlignment="bottom" continuous="YES" maximum="10000" steps="10001" id="b4g-xb-FqV">
+                                    <connections>
+                                        <action selector="sliderValueChanged:" destination="HfE-Zb-cdI" id="fcE-BD-MkH"/>
+                                    </connections>
+                                </slider>
+                            </items>
+                        </group>
+                        <picker height="2" alignment="left" id="gaw-KV-fvZ">
+                            <connections>
+                                <action selector="pickerValueChanged:" destination="HfE-Zb-cdI" id="EN4-Pe-btV"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Jump" id="hcE-dq-neC">
+                            <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                            <connections>
+                                <action selector="pushJump" destination="HfE-Zb-cdI" id="5b8-Ca-zyk"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="label" destination="ohJ-Q8-LB4" id="kkw-F8-vTc"/>
+                        <outlet property="picker" destination="gaw-KV-fvZ" id="dFk-t6-1ZR"/>
+                        <outlet property="slider" destination="b4g-xb-FqV" id="ohv-U2-o07"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="439" y="823"/>
+        </scene>
+        <!--Done-->
+        <scene sceneID="SE6-Da-dfy">
+            <objects>
+                <controller identifier="DictionaryController" title="Done" id="Jd6-9I-t1b" customClass="DictionaryController" customModule="txt_rdr_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="TGZ-ek-qUq">
+                            <items>
+                                <label alignment="left" text="English Dictionary (Beta)" id="zxo-hz-DEX">
+                                    <fontDescription key="font" type="system" pointSize="9"/>
+                                </label>
+                                <picker height="68" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="hJ4-Bv-vug">
+                                    <connections>
+                                        <action selector="selectWordPicker:" destination="Jd6-9I-t1b" id="PhZ-Ws-9Hf"/>
+                                    </connections>
+                                </picker>
+                                <button width="1" alignment="left" title="Define" id="7RQ-We-HkO">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="1" green="0.79872505839999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <connections>
+                                        <action selector="pushDefineQuery" destination="Jd6-9I-t1b" id="N0e-Oi-sa1"/>
+                                    </connections>
+                                </button>
+                                <label alignment="left" numberOfLines="0" id="wwi-w9-zNZ"/>
+                                <label alignment="right" text="Powered by" numberOfLines="0" id="Tem-Al-G5K">
+                                    <fontDescription key="font" type="italicSystem" pointSize="12"/>
+                                </label>
+                                <label alignment="right" text="online-utility.org" numberOfLines="0" id="Ofo-18-Tp9">
+                                    <fontDescription key="font" type="italicSystem" pointSize="12"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="define_button" destination="7RQ-We-HkO" id="KBO-ql-cin"/>
+                        <outlet property="define_label" destination="wwi-w9-zNZ" id="nLm-R2-MWq"/>
+                        <outlet property="url_label" destination="Ofo-18-Tp9" id="E5f-7H-AdZ"/>
+                        <outlet property="word_picker" destination="hJ4-Bv-vug" id="rOB-Lo-AGy"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="680" y="677"/>
+        </scene>
+    </scenes>
+</document>

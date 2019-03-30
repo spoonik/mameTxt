@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>FileName</key>
+		<string>filename1.txt</string>
+		<key>FileLength</key>
+		<integer>0</integer>
+		<key>BookmarkPageIndex</key>
+		<integer>0</integer>
+		<key>PagePos</key>
+		<array>
+			<integer>0</integer>
+			<real>12308</real>
+			<integer>23087</integer>
+		</array>
+	</dict>
+</array>
+</plist>
